@@ -2,12 +2,11 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Synergy Portfolio",
-  description: "A personal portfolio showcasing web development and AI/ML skills, with an AI-powered project recommendation tool.",
+  description: "A personal portfolio showcasing web development and AI/ML skills.",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "Skills", href: "/skills" },
-    { label: "Recommendations", href: "/recommendations" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
