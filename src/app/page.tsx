@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <SectionWrapper className="bg-gradient-to-b from-background to-secondary/30" id="hero">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pl-6 sm:pl-8 lg:pl-10">
           <div className="text-center md:text-left">
             <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
               John Doe
