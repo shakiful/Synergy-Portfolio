@@ -1,3 +1,4 @@
+
 "use client"; // Admin layout often has client-side interactions for navigation state
 
 import Link from "next/link";
@@ -91,11 +92,11 @@ export default function AdminLayout({
         
         <SidebarInset>
           <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14"> {/* sm:pl-14 for collapsed sidebar space */}
-             <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+             <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-6 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-8">
                 <SidebarTrigger className="sm:hidden" /> {/* For mobile */}
                 {/* Breadcrumbs or page title can go here */}
              </header>
-            <main className="flex-1 p-4 sm:px-6 sm:py-0 md:gap-8 overflow-auto">
+            <main className="flex-1 p-6 sm:px-8 sm:py-0 md:gap-8 overflow-auto">
               {children}
             </main>
           </div>
