@@ -52,7 +52,7 @@ export default function AdminBlogsPage() {
                     <>
                       <TableCell className="font-medium">{post.title}</TableCell>
                       <TableCell>{new Date(post.date).toLocaleDateString()}</TableCell>
-                      <TableCell><Badge variant="secondary">Published</Badge></TableCell> {/* Placeholder status */}
+                      <TableCell><Badge variant="secondary">Published</Badge></TableCell>
                       <TableCell className="text-right space-x-2">
                         <Button variant="outline" size="icon" asChild title="Edit">
                           <Link href={`/admin/blogs/edit/${post.slug}`}> {/* Placeholder */}
