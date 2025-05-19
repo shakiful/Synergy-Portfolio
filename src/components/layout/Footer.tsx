@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/site";
 export function Footer() {
   return (
     <footer className="border-t border-border/40 py-6 md:py-8">
-      <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="mx-auto max-w-screen-xl flex flex-col items-center justify-between gap-4 md:flex-row pl-6 pr-4 sm:pl-8 sm:pr-6 lg:pl-10 lg:pr-8">
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
