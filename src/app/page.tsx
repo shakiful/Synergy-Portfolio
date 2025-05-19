@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       <SectionWrapper className="bg-gradient-to-b from-background to-secondary/30" id="hero">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pl-6 sm:pl-8 lg:pl-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
             <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
               John Doe
@@ -48,7 +48,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       <SectionWrapper id="about-me" title="About Me">
-        <div className="max-w-3xl mx-auto text-lg text-foreground/80 space-y-6 pl-6 sm:pl-8 lg:pl-10">
+        <div className="max-w-3xl mx-auto text-lg text-foreground/80 space-y-6">
           <p>
             Hello! I&apos;m John Doe, a dedicated software developer with a strong background in building robust and scalable web applications. My journey into technology began with a fascination for how software can solve real-world problems, which led me to specialize in full-stack development.
           </p>
