@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,33 +38,37 @@ export default function AdminProjectsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Title</TableHead>
-                  <TableHead>Technologies</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Technologies</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {projects.map((project) => (
                   <TableRow key={project.id}>
-                    <TableCell className="font-medium">{project.title}</TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map(tech => (
-                          <Badge key={tech} variant="outline">{tech}</Badge>
-                        ))}
-                        {project.technologies.length > 3 && <Badge variant="outline">...</Badge>}
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-right space-x-2">
-                       <Button variant="outline" size="icon" asChild title="Edit">
-                        <Link href={`/admin/projects/edit/${project.id}`}> {/* Placeholder */}
-                          <Edit className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                      <Button variant="destructive" size="icon" title="Delete (placeholder)">
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </TableCell>
+                    <>
+                      <TableCell className="font-medium">{project.title}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-wrap gap-1">
+                          {project.technologies.slice(0, 3).map(tech => (
+                            <Badge key={tech} variant="outline">{tech}</Badge>
+                          ))}
+                          {project.technologies.length > 3 && <Badge variant="outline">...</Badge>}
+                        </div>
+                      </TableCell>
+                      <TableCell className="text-right space-x-2">
+                        <Button variant="outline" size="icon" asChild title="Edit">
+                          <Link href={`/admin/projects/edit/${project.id}`}> {/* Placeholder */}
+                            <Edit className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        <Button variant="destructive" size="icon" title="Delete (placeholder)">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </TableCell>
+                    </>
                   </TableRow>
                 ))}
               </TableBody>
