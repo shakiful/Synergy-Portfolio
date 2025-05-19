@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -37,28 +38,32 @@ export default function AdminBlogsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Title</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {posts.map((post) => (
                   <TableRow key={post.id}>
-                    <TableCell className="font-medium">{post.title}</TableCell>
-                    <TableCell>{new Date(post.date).toLocaleDateString()}</TableCell>
-                    <TableCell><Badge variant="secondary">Published</Badge></TableCell> {/* Placeholder status */}
-                    <TableCell className="text-right space-x-2">
-                      <Button variant="outline" size="icon" asChild title="Edit">
-                        <Link href={`/admin/blogs/edit/${post.slug}`}> {/* Placeholder */}
-                          <Edit className="h-4 w-4" />
-                        </Link>
-                      </Button>
-                      <Button variant="destructive" size="icon" title="Delete (placeholder)">
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </TableCell>
+                    <>
+                      <TableCell className="font-medium">{post.title}</TableCell>
+                      <TableCell>{new Date(post.date).toLocaleDateString()}</TableCell>
+                      <TableCell><Badge variant="secondary">Published</Badge></TableCell> {/* Placeholder status */}
+                      <TableCell className="text-right space-x-2">
+                        <Button variant="outline" size="icon" asChild title="Edit">
+                          <Link href={`/admin/blogs/edit/${post.slug}`}> {/* Placeholder */}
+                            <Edit className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                        <Button variant="destructive" size="icon" title="Delete (placeholder)">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </TableCell>
+                    </>
                   </TableRow>
                 ))}
               </TableBody>
