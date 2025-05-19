@@ -48,7 +48,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       <SectionWrapper id="about-me" title="About Me">
-        <div className="max-w-3xl mx-auto text-lg text-foreground/80 space-y-6">
+        <div className="max-w-3xl mx-auto text-lg text-foreground/80 space-y-6 pl-6 sm:pl-8 lg:pl-10">
           <p>
             Hello! I&apos;m John Doe, a dedicated software developer with a strong background in building robust and scalable web applications. My journey into technology began with a fascination for how software can solve real-world problems, which led me to specialize in full-stack development.
           </p>
