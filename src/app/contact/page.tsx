@@ -24,7 +24,7 @@ export default function ContactPage() {
             <div>
               <h4 className="font-semibold">Email</h4>
               <a href="mailto:your.email@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                your.email@example.com {/* Replace with actual email */}
+                shakifulkhan@gmail.com {/* Replace with actual email */}
               </a>
             </div>
           </div>
@@ -32,14 +32,14 @@ export default function ContactPage() {
             <Phone className="h-6 w-6 text-primary mt-1 shrink-0" />
             <div>
               <h4 className="font-semibold">Phone</h4>
-              <p className="text-muted-foreground">(123) 456-7890</p> {/* Replace with actual phone or remove */}
+              <p className="text-muted-foreground">9132656105</p> {/* Replace with actual phone or remove */}
             </div>
           </div>
           <div className="flex items-start space-x-3">
             <MapPin className="h-6 w-6 text-primary mt-1 shrink-0" />
             <div>
               <h4 className="font-semibold">Location</h4>
-              <p className="text-muted-foreground">San Francisco, CA (Open to remote)</p> {/* Replace with actual location */}
+              <p className="text-muted-foreground">Missouri, MO (Open to remote)</p> {/* Replace with actual location */}
             </div>
           </div>
         </div>

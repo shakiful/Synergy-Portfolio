@@ -1,9 +1,18 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FileText, Layers, Lightbulb, BarChart3 } from "lucide-react";
+import { getProjects } from "@/lib/firebase/services/projects";
+import { getBlogPosts } from "@/lib/firebase/services/blog";
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
+  const projects = await getProjects();
+  const blogPosts = await getBlogPosts();
+
+  const totalProjects = projects.length;
+  const totalBlogPosts = blogPosts.length;
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between space-y-2">
@@ -24,10 +33,9 @@ export default function AdminDashboardPage() {
             <p className="text-sm text-muted-foreground">
               Welcome to the admin panel. From here you can manage your portfolio content.
             </p>
-            {/* Placeholder for stats */}
             <div className="mt-4 space-y-2">
-              <p><strong>Total Projects:</strong> {3} (mock)</p>
-              <p><strong>Total Blog Posts:</strong> {2} (mock)</p>
+              <p><strong>Total Projects:</strong> {totalProjects}</p>
+              <p><strong>Total Blog Posts:</strong> {totalBlogPosts}</p>
             </div>
           </CardContent>
         </Card>

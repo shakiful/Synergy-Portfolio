@@ -17,7 +17,7 @@ export const siteConfig = {
     { label: "Manage Skills", href: "/admin/skills" },
   ],
   links: {
-    github: "https://github.com/yourusername", // Replace with actual link
-    linkedin: "https://linkedin.com/in/yourusername", // Replace with actual link
+    github: "https://github.com/shakiful", // Replace with actual link
+    linkedin: "https://www.linkedin.com/in/md-shakiful-islam-khan/", // Replace with actual link
   },
 };
