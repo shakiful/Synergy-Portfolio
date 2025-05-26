@@ -25,7 +25,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn2.vectorstock.com', // Added this new entry
+        hostname: 'cdn2.vectorstock.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com', // Added this new entry
         port: '',
         pathname: '/**',
       },
