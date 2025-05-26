@@ -35,8 +35,10 @@ type SkillFormValues = z.infer<typeof skillFormSchema>;
 
 interface SkillFormProps {
   // skill?: Skill; // For editing, not implemented in this pass
-  categories: SkillCategory[];
+  categories: Pick<SkillCategory, 'id' | 'title'>[]; // Use the simplified type
 }
+
+const NO_ICON_VALUE = "__NONE__";
 
 export function SkillForm({ categories }: SkillFormProps) {
   const { toast } = useToast();
@@ -47,7 +49,7 @@ export function SkillForm({ categories }: SkillFormProps) {
     resolver: zodResolver(skillFormSchema),
     defaultValues: {
       name: "",
-      iconName: "",
+      iconName: NO_ICON_VALUE, // Default to "No Icon"
       categoryId: "",
     },
   });
@@ -55,7 +57,10 @@ export function SkillForm({ categories }: SkillFormProps) {
   async function onSubmit(values: SkillFormValues) {
     setIsSubmitting(true);
     try {
-      const skillData: Omit<Skill, 'id'> = { name: values.name, iconName: values.iconName };
+      const skillData: Omit<Skill, 'id'> = { 
+        name: values.name, 
+        iconName: values.iconName === NO_ICON_VALUE ? undefined : values.iconName 
+      };
       const result = await addSkillToCategory(values.categoryId, skillData);
 
       if (result.success) {
@@ -136,7 +141,7 @@ export function SkillForm({ categories }: SkillFormProps) {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="">No Icon</SelectItem>
+                  <SelectItem value={NO_ICON_VALUE}>No Icon</SelectItem>
                   {availableIcons.sort().map(iconKey => (
                     <SelectItem key={iconKey} value={iconKey}>
                       {iconKey}
