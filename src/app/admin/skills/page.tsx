@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { AdminPageHeader } from "@/components/admin/shared/AdminPageHeader";
-import { PlusCircle, Edit, List } from "lucide-react"; // Removed Trash2 as it's handled by DeleteItemButton
+import { PlusCircle, Edit, List } from "lucide-react";
 import { getSkillCategories, deleteSkillCategory, deleteSkillFromCategory } from "@/lib/firebase/services/skills";
 import type { SkillCategory, Skill } from "@/lib/placeholder-data";
 import { DeleteItemButton } from "@/components/admin/shared/DeleteItemButton";
-import { CategoryActions } from "@/components/admin/skills/CategoryActions"; // New component
+import { CategoryActions } from "@/components/admin/skills/CategoryActions";
 import { getIcon } from "@/lib/icon-map";
 import { Zap } from "lucide-react"; // Default icon
 
@@ -82,7 +82,7 @@ export default async function AdminSkillsPage() {
                                   </Button>
                                   <DeleteItemButton
                                     itemId={skill.id!}
-                                    deleteAction={(skillId) => handleDeleteSkill(category.id!, skillId)}
+                                    deleteAction={handleDeleteSkill.bind(null, category.id!)}
                                     itemType="skill"
                                     variant="ghost"
                                     size="icon"
