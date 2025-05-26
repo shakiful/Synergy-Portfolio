@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Synergy Portfolio | Web & AI Developer',
   description: 'A personal portfolio showcasing web development and AI/ML skills, featuring an AI-powered project recommendation tool.',
+  icons:{
+    icon:"https://cdn1.iconfinder.com/data/icons/interview/50/cv-512.png"
+  },
 };
 
 export default function RootLayout({
