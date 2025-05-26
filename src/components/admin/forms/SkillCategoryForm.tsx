@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import type { SkillCategory } from "@/lib/placeholder-data";
+// No longer need full SkillCategory type here
 import { addSkillCategory, updateSkillCategory } from "@/lib/firebase/services/skills";
 
 const skillCategoryFormSchema = z.object({
@@ -28,7 +28,7 @@ const skillCategoryFormSchema = z.object({
 type SkillCategoryFormValues = z.infer<typeof skillCategoryFormSchema>;
 
 interface SkillCategoryFormProps {
-  category?: SkillCategory;
+  category?: { id: string; title: string }; // Updated to expect only id and title
 }
 
 export function SkillCategoryForm({ category }: SkillCategoryFormProps) {

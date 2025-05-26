@@ -12,6 +12,12 @@ export default async function EditSkillCategoryPage({ params }: { params: { id: 
     notFound();
   }
 
+  // Pass only serializable data to the client component
+  const categoryFormData = {
+    id: category.id!,
+    title: category.title,
+  };
+
   return (
     <div className="space-y-6">
       <AdminPageHeader
@@ -23,7 +29,7 @@ export default async function EditSkillCategoryPage({ params }: { params: { id: 
           <CardTitle>Category Details</CardTitle>
         </CardHeader>
         <CardContent>
-          <SkillCategoryForm category={category} />
+          <SkillCategoryForm category={categoryFormData} />
         </CardContent>
       </Card>
     </div>
