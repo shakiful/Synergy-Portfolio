@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { mockBlogPosts } from "@/lib/placeholder-data"; // Using mock data
 import { AdminPageHeader } from "@/components/admin/shared/AdminPageHeader";
 import { PlusCircle, Edit, Trash2 } from "lucide-react";
+import { getBlogPosts, deleteBlogPost } from "@/lib/firebase/services/blog";
+import type { BlogPost } from "@/lib/placeholder-data";
+import { DeleteItemButton } from "@/components/admin/shared/DeleteItemButton";
+import { format } from 'date-fns';
 
-export default function AdminBlogsPage() {
-  // In a real app, fetch blog posts from Firebase/backend
-  const posts = mockBlogPosts;
+export default async function AdminBlogsPage() {
+  const posts: BlogPost[] = await getBlogPosts();
 
   return (
     <div className="space-y-6">
@@ -19,7 +21,7 @@ export default function AdminBlogsPage() {
         description="Create, edit, and delete your blog posts."
         actions={
           <Button asChild>
-            <Link href="/admin/blogs/new"> {/* Placeholder for new blog form */}
+            <Link href="/admin/blogs/new">
               <PlusCircle className="mr-2 h-4 w-4" /> Add New Post
             </Link>
           </Button>
@@ -51,17 +53,15 @@ export default function AdminBlogsPage() {
                   <TableRow key={post.id}>
                     <>
                       <TableCell className="font-medium">{post.title}</TableCell>
-                      <TableCell>{new Date(post.date).toLocaleDateString()}</TableCell>
-                      <TableCell><Badge variant="secondary">Published</Badge></TableCell>
+                      <TableCell>{post.date ? format(new Date(post.date), 'MM/dd/yyyy') : 'N/A'}</TableCell>
+                      <TableCell><Badge variant="secondary">Published</Badge></TableCell> {/* Status can be dynamic later */}
                       <TableCell className="text-right space-x-2">
                         <Button variant="outline" size="icon" asChild title="Edit">
-                          <Link href={`/admin/blogs/edit/${post.slug}`}> {/* Placeholder */}
+                          <Link href={`/admin/blogs/edit/${post.slug}`}>
                             <Edit className="h-4 w-4" />
                           </Link>
                         </Button>
-                        <Button variant="destructive" size="icon" title="Delete (placeholder)">
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
+                        <DeleteItemButton itemId={post.slug} deleteAction={deleteBlogPost} itemType="blog post" />
                       </TableCell>
                     </>
                   </TableRow>

@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
             <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-6xl">
-              John Doe
+              Md Shakiful Islam Khan
             </h1>
             <p className="mt-3 text-xl font-medium text-foreground sm:text-2xl">
               Full-Stack Developer | AI Enthusiast
@@ -35,7 +35,7 @@ export default function HomePage() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="https://placehold.co/400x400.png"
+              src="https://media.licdn.com/dms/image/v2/D5603AQH7iJ5tdmJYzw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699432604796?e=1753315200&v=beta&t=6bk01iGoQ36Q5Wrv_a5tYtSY7Nb7f4_b_uFGuI9BjaA"
               alt="John Doe - Profile Picture"
               width={400}
               height={400}

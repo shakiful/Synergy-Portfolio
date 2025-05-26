@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,10 +17,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <CardHeader className="p-0">
         <div className="aspect-video relative">
           <Image
-            src={project.imageUrl}
+            src={project.imageUrl || "https://placehold.co/600x400.png?text=Project+Image"}
             alt={project.title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
             className="transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={project.dataAiHint || "technology project"}
           />
@@ -27,16 +29,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="p-6 flex-grow">
         <CardTitle className="text-xl font-semibold mb-2 text-primary">{project.title}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground mb-4 h-20 overflow-hidden">
+        <CardDescription className="text-sm text-muted-foreground mb-4 h-20 overflow-hidden line-clamp-3">
           {project.description}
         </CardDescription>
         <div className="space-y-2">
           <h4 className="text-xs font-semibold uppercase text-muted-foreground">Technologies Used:</h4>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
-            ))}
-          </div>
+          {project.technologies && project.technologies.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <Badge key={tech} variant="secondary" className="text-xs">{tech}</Badge>
+              ))}
+            </div>
+          ) : (
+            <p className="text-xs text-muted-foreground">No technologies listed.</p>
+          )}
         </div>
       </CardContent>
       <CardFooter className="p-6 bg-muted/30">
