@@ -1,6 +1,7 @@
 
 "use client";
 
+import React from "react"; // Added import
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -19,7 +20,6 @@ import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { SkillCategory } from "@/lib/placeholder-data";
 import { addSkillCategory, updateSkillCategory } from "@/lib/firebase/services/skills";
-import React from "react";
 
 const skillCategoryFormSchema = z.object({
   title: z.string().min(2, "Category title must be at least 2 characters.").max(50),
