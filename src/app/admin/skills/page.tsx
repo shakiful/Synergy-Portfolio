@@ -52,29 +52,35 @@ export default async function AdminSkillsPage() {
           {skillCategories.length > 0 ? (
             <Accordion type="multiple" className="w-full">
               {skillCategories.map((category) => {
-                const Icon = category.title ? getIcon(category.title.toLowerCase().replace(/\s+/g, '-')) : Zap;
+                // const Icon = category.title ? getIcon(category.title.toLowerCase().replace(/\s+/g, '-')) : Zap; // Icon for category title - not used in current layout
                 return (
                 <AccordionItem value={category.id!} key={category.id!}>
-                  <AccordionTrigger className="hover:no-underline">
-                    <div className="flex items-center justify-between w-full">
-                      <span className="font-semibold text-lg">{category.title}</span>
-                      <div className="flex items-center gap-2">
-                        <Button variant="ghost" size="icon" className="h-8 w-8" title="Edit Category" asChild>
-                          <Link href={`/admin/skills/categories/edit/${category.id}`}>
-                            <Edit className="h-4 w-4" />
-                          </Link>
-                        </Button>
-                         <DeleteItemButton 
-                            itemId={category.id!} 
-                            deleteAction={deleteSkillCategory} 
-                            itemType="skill category" 
-                            variant="ghost" 
+                  <div className="flex items-center justify-between w-full px-4 border-b group"> {/* Overall header row, border-b if AccordionItem doesn't handle it well for all children*/}
+                    <AccordionTrigger className="flex-grow text-left p-0 hover:no-underline focus-visible:ring-inset focus-visible:ring-ring [&>svg]:transition-transform [&>svg]:duration-200 group-data-[state=open]:[&>svg]:rotate-180">
+                      {/* py-4 is on the span to control height, matching original trigger */}
+                      <span className="font-semibold text-lg py-4">{category.title}</span>
+                      {/* ChevronDown is automatically added by AccordionTrigger from ui/accordion */}
+                    </AccordionTrigger>
+
+                    {/* Action buttons are siblings to AccordionTrigger's clickable area */}
+                    <div className="flex items-center gap-2 shrink-0">
+                      <Button variant="ghost" size="icon" className="h-8 w-8" title="Edit Category" asChild>
+                        <Link href={`/admin/skills/categories/edit/${category.id}`} onClick={(e) => e.stopPropagation()}>
+                          <Edit className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                      <div onClick={(e) => e.stopPropagation()}> {/* Wrapper to stop propagation for DeleteItemButton */}
+                         <DeleteItemButton
+                            itemId={category.id!}
+                            deleteAction={deleteSkillCategory}
+                            itemType="skill category"
+                            variant="ghost"
                             size="icon"
                             className="h-8 w-8 hover:bg-destructive/10 hover:text-destructive"
                          />
                       </div>
                     </div>
-                  </AccordionTrigger>
+                  </div>
                   <AccordionContent>
                     {category.skills && category.skills.length > 0 ? (
                         <ul className="space-y-2 pt-2 pl-4">
@@ -119,3 +125,4 @@ export default async function AdminSkillsPage() {
     </div>
   );
 }
+
