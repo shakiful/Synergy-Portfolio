@@ -2,7 +2,7 @@
 'use server';
 import { db } from '@/lib/firebase/firebase';
 import type { BlogPost } from '@/lib/placeholder-data';
-import { collection, getDocs, doc, getDoc, setDoc, deleteDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, setDoc, deleteDoc, serverTimestamp, query, orderBy, updateDoc } from 'firebase/firestore';
 import { revalidatePath } from 'next/cache';
 
 const BLOG_COLLECTION = 'blogPosts';
@@ -85,3 +85,4 @@ export async function deleteBlogPost(slug: string): Promise<{success: boolean, e
     return { success: false, error: error.message };
   }
 }
+
