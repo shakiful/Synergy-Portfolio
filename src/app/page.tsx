@@ -15,7 +15,7 @@ export default function HomePage() {
               Md Shakiful Islam Khan
             </h1>
             <p className="mt-3 text-xl font-medium text-foreground sm:text-2xl">
-              Full-Stack Developer | AI Enthusiast
+              Full-Stack Web Developer | AI Enthusiast
             </p>
             <p className="mt-6 text-lg text-muted-foreground">
               Passionate about crafting innovative web solutions and exploring the intersection of AI and software engineering. Turning complex problems into elegant, user-centric applications.
