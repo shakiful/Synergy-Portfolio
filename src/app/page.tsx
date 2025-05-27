@@ -27,7 +27,7 @@ export default function HomePage() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="shadow-sm hover:shadow-md transition-shadow">
-                <Link href="/resume.pdf" target="_blank"> {/* Replace with actual resume link */}
+                <Link href="https://drive.google.com/uc?export=download&id=10GdJAUCQ4x_UWmHsysPnwKaLHwd_5TJz" target="_blank"> {/* Replace with actual resume link */}
                   Download Resume <Download className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
